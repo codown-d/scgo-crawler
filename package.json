@@ -7,12 +7,20 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "pkg": "pkg . --out-path=build/",
     "preview": "vite preview"
+  },
+  "bin": "./app.js",  
+  "pkg": {
+    "scripts": "dist/assets/**/*.js",
+    "assets": "dist/**/*",
+    "targets": ["node8"]
   },
   "dependencies": {
     "antd": "^5.19.2",
     "axios": "^1.7.2",
     "echarts": "^5.5.1",
+    "express": "^4.19.2",
     "http-proxy-middleware": "^3.0.0",
     "lodash": "^4.17.21",
     "moment": "^2.30.1",
