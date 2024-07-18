@@ -7,14 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "pkg": "pkg . --out-path=build/",
+    "pkg":"pkg . -t node18-win-x64 --out-path=nodedist/",
     "preview": "vite preview"
   },
   "bin": "./app.js",  
   "pkg": {
-    "scripts": "dist/assets/**/*.js",
-    "assets": "dist/**/*",
-    "targets": ["node8"]
+    "scripts": "dist/**/*.js",
+    "assets": "dist/**/*"
   },
   "dependencies": {
     "antd": "^5.19.2",
