@@ -3,7 +3,7 @@ import express from 'express';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 
 const app = express();
-
+app.use(express.static('./dist'));
 // 定义反向代理路由
 app.use('/csgod', createProxyMiddleware({
   target: 'https://csgod.top/',  // 目标服务器的地址
