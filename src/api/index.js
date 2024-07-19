@@ -1,5 +1,6 @@
 //https://csgod.top/api/room/123
 import axios from "./config";
+import { axiosIns } from "./config";
 //https://csgod.top/api/room
 const getRomeList = () => {
   return axios.get("/api/room");
@@ -7,18 +8,22 @@ const getRomeList = () => {
 const getRomeInfo = (rommId) => {
   return axios.get(`/api/room/${rommId}`);
 };
-const getUserCsgoInfo = (profile_id, season = 10) => {
-  return axios.get(`/api/profile/${profile_id}/match?season=${season}&page=1`);
+const getUserCsgoInfo = (profile_id, season) => {
+  return axios.get(`/api/profile/${profile_id}/match?page=1&season=${season}`);
 };
-const getUserCs2Info = (profile_id) => {
-  return axios.get(`/api/profile/${profile_id}/match?season=100&page=1`);
+const getUserCs2Info = (profile_id, season) => {
+  return axios.get(
+    `/api/profile/${profile_id}/match?season=100&page=1&season=${season}`
+  );
 };
 
-//https://csgod.top/profile/1197868644/__data.json?season=10&x-sveltekit-invalidated=001
-const getProfile = (profile_id, season = 10) => {
+const getProfile = (profile_id) => {
   return axios.get(
-    `/profile/${profile_id}/__data.json?season=${season}&x-sveltekit-invalidated=001`
+    `/profile/${profile_id}/__data.json?x-sveltekit-invalidated=001`
   );
+};
+const getSeason = () => {
+  return axiosIns.get(`/api/season`);
 };
 
 export {
@@ -27,4 +32,5 @@ export {
   getUserCsgoInfo,
   getUserCs2Info,
   getProfile,
+  getSeason,
 };

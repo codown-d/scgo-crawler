@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL = '/csgod';
+axios.defaults.baseURL = "/csgod";
 axios.defaults.headers.common["Content-Type"] = "application/json";
 // axios.defaults.headers.common["accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
 
@@ -28,6 +28,9 @@ axios.interceptors.response.use(
   }
 );
 
-// const instance = axios.create();
+const axiosIns = axios.create({
+  baseURL: "",
+});
+export { axiosIns };
 
 export default axios;
